@@ -1,0 +1,14 @@
+<mvc:View controllerName="com.rikdiaz.projectui5.projectui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox class="sapUiContentPadding sapUiSmallMargin">
+                <List headerText="Lista de Productos" headerLevel="H4"
+                items="{ path: 'mCatalog>/Products' }" id="listProducts" growing="true" growingThreshold="10">
+                    <StandardListItem title="{mCatalog>ProductID} - {mCatalog>ProductName} - {mCatalog>ReorderLevel} - {mCatalog>SupplierID}" counter="{mCatalog>UnitsInStock}" />
+                </List>
+            </VBox>
+        </content>        
+    </Page>
+</mvc:View>

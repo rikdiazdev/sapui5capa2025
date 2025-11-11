@@ -1,0 +1,24 @@
+{
+  "generationParameters": {
+    "generationDate": "Mon Nov 10 2025 22:29:45 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://97688e58trial-dev-cap-products-srv.cfapps.us10-001.hana.ondemand.com/odata/v2/catalog",
+    "appName": "projectui5",
+    "appTitle": "Gestor Productos",
+    "appDescription": "Gestor Productos",
+    "appNamespace": "com.rikdiaz.projectui5",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.142.0",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.19.5",
+    "template": "Basic V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}
