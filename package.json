@@ -32,5 +32,5 @@
     "build:mta": "rimraf resources mta_archives && mbt build",
     "undeploy": "cf undeploy comrikdiazprojectui5projectui5 --delete-services --delete-service-keys --delete-service-brokers"
   },
-  "sapuxLayer": "CUSTOMER_BASE"
+  "sapuxLayer": "CUSTOMER_BASE"  
 }

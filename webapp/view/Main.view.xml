@@ -1,12 +1,50 @@
 <mvc:View controllerName="com.rikdiaz.projectui5.projectui5.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}">        
         <content>
+
+
             <VBox class="sapUiContentPadding sapUiSmallMargin">
-                <List headerText="Lista de Productos" headerLevel="H4"
-                items="{ path: 'mCatalog>/Products' }" id="listProducts" growing="true" growingThreshold="10">
-                    <StandardListItem title="{mCatalog>ProductID} - {mCatalog>ProductName} - {mCatalog>ReorderLevel} - {mCatalog>SupplierID}" counter="{mCatalog>UnitsInStock}" />
+                <OverflowToolbar>
+                    <!-- <HBox justifyContent="SpaceBetween" alignItems="Center"> -->
+                        <Title text="Lista de Productos"/>
+                        <ToolbarSpacer/>
+                        <SearchField width="30%" placeholder="Buscar productos por Nombre" liveChange=".onSearchBD">
+                            <layoutData>
+                                <OverflowToolbarLayoutData
+                                    priority="NeverOverflow" minWidth="150px"/>                
+                            </layoutData>
+                        </SearchField>
+                    <!-- </HBox> -->
+                </OverflowToolbar>
+                <List 
+                    id="listProducts"
+                    headerLevel="H4"
+                    items="{ path: 'mListProducts>/' }" 
+                    growing="true" growingThreshold="10"
+                    noDataText="No se encontró Productos" mode="SingleSelectMaster">
+                    
+                    <!-- <StandardListItem 
+                        title="{mListProducts>ProductName}" 
+                        description="{mListProducts>QuantityPerUnit}" 
+                        info="{mListProducts>UnitsInStock}" 
+                        infoState="{path: 'mListProducts>UnitsInStock', formatter: '.formatter.formatUnitsInStock'}"/> -->
+
+                    <CustomListItem >
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">  
+                            <VBox >
+                                <Title text="{mListProducts>ProductName}" level="H3"  class="sapUiTinyMarginBegin sapUiTinyMargin"/>
+                                <Text text="{mListProducts>QuantityPerUnit}" wrapping="true" class="sapUiTinyMarginBegin"/>
+                            </VBox>                          
+                            <HBox >
+                                <tnt:InfoLabel id="il1" text="{mListProducts>UnitsInStock}" renderMode="Narrow" colorScheme="{path: 'mListProducts>UnitsInStock', formatter: '.formatter.colorSchemeStock'}" class="sapUiTinyMarginEnd"/>
+                            </HBox>
+                        </HBox>
+                    </CustomListItem>
+
+                    
                 </List>
             </VBox>
         </content>        
