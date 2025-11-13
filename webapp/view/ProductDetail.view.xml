@@ -1,0 +1,73 @@
+<mvc:View controllerName="com.rikdiaz.projectui5.projectui5.controller.ProductDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:uxap="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="pageProductDetail" title="Product Detail">
+
+        <uxap:ObjectPageLayout >
+
+            <uxap:headerTitle>
+
+                <uxap:ObjectPageDynamicHeaderTitle>
+                    <uxap:snappedHeading>
+                        <FlexBox fitContainer="true" alignItems="Center">
+                            
+                            <Title text="{mProductDetail>/ProductName}" class="sapUiTinyMarginEnd"></Title>
+                            <Text text="ID: {mProductDetail>/ProductID}"></Text>
+                            
+                        </FlexBox>
+                    </uxap:snappedHeading>
+
+                    <uxap:expandedContent>
+                        <Title text="{mProductDetail>/ProductName}"></Title>
+                    </uxap:expandedContent>
+
+                </uxap:ObjectPageDynamicHeaderTitle>
+
+            </uxap:headerTitle>
+
+            <uxap:headerContent>
+
+                <layout:VerticalLayout >
+                    <Label text="ID: {mProductDetail>/ProductID}"></Label>
+                </layout:VerticalLayout>
+
+            </uxap:headerContent>
+
+            <uxap:sections>
+                
+                <uxap:ObjectPageSection >
+
+                    <uxap:subSections>                        
+                        <uxap:ObjectPageSubSection title="Units on Order">
+                            <uxap:blocks>
+                                <Text text="{mProductDetail>/UnitsOnOrder}"/>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+
+                    <uxap:subSections>                        
+                        <uxap:ObjectPageSubSection title="Quantity x Unit">
+                            <uxap:blocks>
+                                <Text text="{mProductDetail>/QuantityPerUnit}"/>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+
+                    <uxap:subSections>                        
+                        <uxap:ObjectPageSubSection title="Precio">
+                            <uxap:blocks>
+                                <Text text="{mProductDetail>/UnitPrice}"/>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+
+                </uxap:ObjectPageSection>
+
+            </uxap:sections>
+
+        </uxap:ObjectPageLayout>  
+
+    </Page>
+</mvc:View>

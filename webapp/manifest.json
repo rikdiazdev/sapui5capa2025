@@ -99,7 +99,10 @@
         "viewType": "XML",
         "path": "com.rikdiaz.projectui5.projectui5.view",
         "async": true,
-        "viewPath": "com.rikdiaz.projectui5.projectui5.view"
+        "viewPath": "com.rikdiaz.projectui5.projectui5.view",
+        "bypassed": {
+          "target" : "TargetNotFound"
+        }
       },
       "routes": [
         {
@@ -108,12 +111,25 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "RouteProDet",
+          "pattern": "RouteProDet/{productId}",
+          "target": [
+            "TargetProdDet"
+          ]
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main"
+        },
+        "TargetProdDet": {
+          "name": "ProductDetail"
+        },
+        "TargetNotFound":{
+          "name": "NotFound"
         }
       }
     },

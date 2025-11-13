@@ -1,0 +1,22 @@
+<mvc:View controllerName="com.rikdiaz.projectui5.projectui5.controller.ProductDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
+    <l:ResponsiveSplitter>
+        <l:PaneContainer orientation="Vertical">
+            <l:SplitPane>
+                <l:layoutData>
+                    <l:SplitterLayoutData size="70%" />
+                </l:layoutData>
+                <IllustratedMessage enableVerticalResponsiveness="true" illustrationType="sapIllus-UnableToLoad" title="404 - Not Found" description="Page not found - Sorry">
+                    <!-- <additionalContent>
+                        <Button text="No Found" />
+                    </additionalContent> -->
+                </IllustratedMessage>
+            </l:SplitPane>
+            <!-- <l:SplitPane>
+                <VBox />
+            </l:SplitPane> -->
+        </l:PaneContainer>
+    </l:ResponsiveSplitter>
+</mvc:View>

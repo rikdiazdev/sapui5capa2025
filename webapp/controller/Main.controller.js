@@ -1,15 +1,17 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "./Base.controller",
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], (Controller, JSONModel, formatter, Filter, FilterOperator) => {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/UIComponent",
+], (Basecontroller, JSONModel, formatter, Filter, FilterOperator,UIComponent) => {
     "use strict";
 
-    return Controller.extend("com.rikdiaz.projectui5.projectui5.controller.Main", {
+    return Basecontroller.extend("com.rikdiaz.projectui5.projectui5.controller.Main", {
         formatter: formatter,
         onInit() {
+            console.log("Main Controller")
             this.oCatalogModel = this.getOwnerComponent().getModel("mCatalog");
             this.getProducts();
         },
@@ -32,6 +34,21 @@ sap.ui.define([
             }
         },
 
+        onSearchProductsBinding: function(oEvent){
+            let aFilters = [];
+            let sQuery = oEvent.getSource().getValue();
+
+            if (sQuery && sQuery.length > 0) {
+                let oFilter = new Filter("ProductName", FilterOperator.Contains, sQuery);
+                aFilters.push(oFilter);
+            }
+
+            let oList = this.byId("listProducts");
+            let oBinding = oList.getBinding("items");
+            oBinding.filter(aFilters);
+
+        },
+
         _readProducts: function(that,aFilters = []){
             const sPath = "/Products";
             const aUrlParameters = { "$select": "ProductName,QuantityPerUnit,UnitsInStock,Discontinued" };
@@ -47,6 +64,20 @@ sap.ui.define([
                     console.log("Error al leer Products", oError);
                 }
             });
+        },        
+
+        onPressButton: function(oEvent){
+            let viewRoute = "RouteProDet";
+            this.getRouter().navTo(viewRoute,{});
+        },
+
+        onPressProduct: function(oEvent){
+            let sProductID = oEvent.getSource().getSelectedItem().getBindingContext("mListProducts").getObject().ProductID;
+            
+            let viewRoute = "RouteProDet";
+            this.getRouter().navTo(viewRoute,{
+                productId: sProductID
+            })
         }
 
     });
