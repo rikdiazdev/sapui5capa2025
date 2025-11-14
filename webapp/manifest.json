@@ -118,6 +118,13 @@
           "target": [
             "TargetProdDet"
           ]
+        },
+        {
+          "name": "RouteProNew",
+          "pattern": "RouteProNew",
+          "target": [
+            "TargetProdNew"
+          ]
         }
       ],
       "targets": {
@@ -127,6 +134,9 @@
         },
         "TargetProdDet": {
           "name": "ProductDetail"
+        },
+        "TargetProdNew":{
+          "name": "ProductCreate"
         },
         "TargetNotFound":{
           "name": "NotFound"

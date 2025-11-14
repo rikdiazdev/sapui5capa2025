@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+    <Dialog title="Aviso" id="dialogFrg" class="sapUiSmallMargin">
+        <content>
+            <VBox >
+            <Text text="Soy un fragment" class="sapUiSmallMargin"/>
+        </VBox>
+        </content>
+        <beginButton>
+            <Button text="Cerrar" press="onCloseDialog"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

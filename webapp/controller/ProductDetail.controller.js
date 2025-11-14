@@ -8,8 +8,7 @@ sap.ui.define([
   return Basecontroller.extend("com.rikdiaz.projectui5.projectui5.controller.ProductDetail", {
     onInit() {      
       this.getRouter().getRoute("RouteProDet").attachMatched(this._onRouteMatched,this);
-      this.oCatalogModel = this.getOwnerComponent().getModel("mCatalog");
-      BusyIndicator.show();
+      this.oCatalogModel = this.getOwnerComponent().getModel("mCatalog");      
     },   
 
     _onRouteMatched: function(oEvent){
@@ -17,8 +16,9 @@ sap.ui.define([
       let sProductID = oArgs.productId;
       this._readProducts(this,sProductID);
     },
-
+    
     _readProducts: function(that, sProductID){
+            BusyIndicator.show();
             const sPath = "/Products("+sProductID+")";
             this.oCatalogModel.read(sPath, {
                 success: function (oData, response) {

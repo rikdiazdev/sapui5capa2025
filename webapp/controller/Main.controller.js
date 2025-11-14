@@ -5,7 +5,8 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/UIComponent",
-], (Basecontroller, JSONModel, formatter, Filter, FilterOperator,UIComponent) => {
+    "sap/ui/core/Fragment",
+], (Basecontroller, JSONModel, formatter, Filter, FilterOperator,UIComponent,Fragment) => {
     "use strict";
 
     return Basecontroller.extend("com.rikdiaz.projectui5.projectui5.controller.Main", {
@@ -66,8 +67,8 @@ sap.ui.define([
             });
         },        
 
-        onPressButton: function(oEvent){
-            let viewRoute = "RouteProDet";
+        onPressToNew: function(oEvent){
+            let viewRoute = "RouteProNew";
             this.getRouter().navTo(viewRoute,{});
         },
 
@@ -78,6 +79,28 @@ sap.ui.define([
             this.getRouter().navTo(viewRoute,{
                 productId: sProductID
             })
+        },
+
+        onPressCallDialog: function(){
+            if(!this._oDialog){
+                Fragment.load({
+                    name: "com.rikdiaz.projectui5.projectui5.view.fragments.Dialog",
+                    controller: this,
+                    id: this.getView().getId()
+                }).then(oDialog => {
+                    this._oDialog = oDialog;
+                    this.getView().addDependent(oDialog);
+                    oDialog.open();
+                })
+            }else{
+                this._oDialog.open();
+            }
+        },
+
+        onCloseDialog: function(){
+            if(this._oDialog){
+                this._oDialog.close();
+            }
         }
 
     });

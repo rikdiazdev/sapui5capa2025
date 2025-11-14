@@ -4,12 +4,12 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">        
         <content>
-
-
             <VBox class="sapUiContentPadding sapUiSmallMargin">
                 <OverflowToolbar>
                     <!-- <HBox justifyContent="SpaceBetween" alignItems="Center"> -->
-                        <Title text="Lista de Productos"/>                        
+                        <Title text="{i18n>listProducts}"/>                        
+                        <Button text="Nuevo Producto" press="onPressToNew" type="Emphasized" class="sapUiTinyMarginBegin"/>
+                        <Button text="Llamar a Dialog" press="onPressCallDialog" type="Success"></Button> 
                         <ToolbarSpacer/>
                         <SearchField width="30%" placeholder="Buscar productos por Nombre" liveChange=".onSearchProductsBinding">
                             <layoutData>
